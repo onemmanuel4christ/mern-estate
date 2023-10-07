@@ -18,9 +18,11 @@ app.listen(3000, () => {
     console.log("server is runing on port 3000!");
 });
 
+//route
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 
+//middle ware to handle error
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || "internal server error";
